@@ -13,7 +13,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
 		didSet { tableView.reloadData() }
 	}
 
-	@IBOutlet var errorView: ErrorView!
+	@IBOutlet private var errorView: ErrorView!
 
 	public override func viewDidLoad() {
 		super.viewDidLoad()
