@@ -23,15 +23,14 @@ public final class ErrorView: UIView {
 	}
 
 	func show(message: String?) {
-		guard let message = message else {
+		if message != nil {
+			button.setTitle(message, for: .normal)
+
+			UIView.animate(withDuration: 0.25) {
+				self.alpha = 1
+			}
+		} else {
 			hideMessage()
-			return
-		}
-
-		button.setTitle(message, for: .normal)
-
-		UIView.animate(withDuration: 0.25) {
-			self.alpha = 1
 		}
 	}
 
