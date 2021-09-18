@@ -6,12 +6,11 @@ import Foundation
 import FeedFeature
 
 struct FeedErrorViewModel {
-	let message: String
+	let message: String?
 }
 
 protocol FeedErrorView {
 	func display(_ viewModel: FeedErrorViewModel)
-	func hideErrorView()
 }
 
 protocol FeedLoadingView {
@@ -35,7 +34,7 @@ final class FeedPresenter {
 
 	func didStartLoadingFeed() {
 		loadingView.display(FeedLoadingViewModel(isLoading: true))
-		errorView.hideErrorView()
+		errorView.display(.init(message: .none))
 	}
 
 	func didFinishLoadingFeed(with feed: [FeedImage]) {
