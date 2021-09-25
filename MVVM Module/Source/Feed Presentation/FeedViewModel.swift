@@ -31,8 +31,7 @@ final class FeedViewModel {
 			case let .success(feed):
 				self?.onFeedLoad?(feed)
 			case .failure:
-				guard let self = self else { return }
-				self.onErrorStateChange?(Localized.Feed.error)
+				self?.onErrorStateChange?(Localized.Feed.error)
 			}
 			self?.onLoadingStateChange?(false)
 		}
